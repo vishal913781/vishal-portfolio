@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shubham Ramsagar Yadav | AI/ML Engineer Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0f19;
+      --card-bg: #111827;
+      --card-border: #1f2937;
+      --accent: #3b82f6;
+      --accent-hover: #2563eb;
+      --text: #f3f4f6;
+      --text-muted: #9ca3af;
+      --tag-bg: #1e293b;
+      --tag-text: #93c5fd;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(11, 15, 25, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--card-border);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .nav-logo {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 4rem 0 3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      align-self: flex-start;
+      background: rgba(59, 130, 246, 0.1);
+      color: var(--accent);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      padding: 0.35rem 0.85rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .hero h1 {
+      font-size: 2.75rem;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 750px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      margin-top: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.65rem 1.25rem;
+      border-radius: 6px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-hover);
+    }
+
+    .btn-secondary {
+      background: var(--card-bg);
+      color: var(--text);
+      border: 1px solid var(--card-border);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--text-muted);
+    }
+
+    /* Section Styling */
+    section {
+      padding: 3.5rem 0;
+      border-top: 1px solid var(--card-border);
+    }
+
+    .section-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-subtitle {
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      font-size: 0.95rem;
+    }
+
+    /* Skills Grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .skill-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 1.25rem;
+    }
+
+    .skill-card h3 {
+      font-size: 1rem;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .tag {
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+    }
+
+    /* Projects Detail */
+    .projects-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .project-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 1.75rem;
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .project-header h3 {
+      font-size: 1.3rem;
+      color: #fff;
+    }
+
+    .project-bullets {
+      list-style-position: inside;
+      color: var(--text-muted);
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .project-bullets li {
+      font-size: 0.95rem;
+    }
+
+    /* Working Project Gallery */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .gallery-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .gallery-img-container {
+      width: 100%;
+      height: 200px;
+      background: #1a2234;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .gallery-img-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .gallery-placeholder {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .gallery-info {
+      padding: 1.25rem;
+    }
+
+    .gallery-info h4 {
+      font-size: 1.05rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .gallery-info p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* Education & Certs */
+    .timeline-item {
+      padding-left: 1.25rem;
+      border-left: 2px solid var(--card-border);
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -6px;
+      top: 4px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .timeline-item h4 {
+      font-size: 1.05rem;
+    }
+
+    .timeline-item .institution {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--card-border);
+      padding: 2.5rem 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.1rem; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="#" class="nav-logo">Shubham Yadav</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+
+    <!-- Hero Section -->
+    <header class="hero" id="about">
+      <span class="hero-badge">AI/ML Engineer</span>
+      <h1>Shubham Ramsagar Yadav</h1>
+      <p>
+        AI/ML Engineer with a Computer Applications (BCA) foundation and hands-on Machine Learning, Deep Learning, and NLP expertise. Experienced in building production-ready computer vision pipelines, IoT hardware integrations, and user-facing intelligent web apps.
+      </p>
+      <div class="hero-actions">
+        <a href="mailto:shubham20049967@gmail.com" class="btn btn-primary">Get In Touch</a>
+        <a href="#gallery" class="btn btn-secondary">View Project Demos</a>
+      </div>
+    </header>
+
+    <!-- Skills Section -->
+    <section id="skills">
+      <h2 class="section-title">Technical Expertise</h2>
+      <p class="section-subtitle">Core engineering, modeling, and software development stack</p>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3>Core Domains</h3>
+          <div class="skill-tags">
+            <span class="tag">Machine Learning</span>
+            <span class="tag">Deep Learning</span>
+            <span class="tag">Computer Vision</span>
+            <span class="tag">NLP</span>
+            <span class="tag">LLMs</span>
+            <span class="tag">MCP</span>
+            <span class="tag">Agent Development</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>Languages & Web</h3>
+          <div class="skill-tags">
+            <span class="tag">Python</span>
+            <span class="tag">Java</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">C++</span>
+            <span class="tag">SQL</span>
+            <span class="tag">HTML/CSS</span>
+            <span class="tag">Bootstrap</span>
+            <span class="tag">Streamlit</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>Databases & Cloud</h3>
+          <div class="skill-tags">
+            <span class="tag">MySQL</span>
+            <span class="tag">MongoDB</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>Software Engineering</h3>
+          <div class="skill-tags">
+            <span class="tag">Agile / SDLC</span>
+            <span class="tag">Data Analytics</span>
+            <span class="tag">IoT Systems</span>
+            <span class="tag">Model Deployment</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+      <h2 class="section-title">Featured Projects</h2>
+      <p class="section-subtitle">End-to-end architectures and deployed machine learning applications</p>
+      
+      <div class="projects-list">
+        <!-- Project 1 -->
+        <div class="project-card">
+          <div class="project-header">
+            <h3>CanineAI: AI-Powered Dog Breed Detection & Care Intelligence</h3>
+            <div class="skill-tags">
+              <span class="tag">Python</span>
+              <span class="tag">TensorFlow</span>
+              <span class="tag">YOLOv8</span>
+              <span class="tag">Streamlit</span>
+              <span class="tag">Botpress</span>
+            </div>
+          </div>
+          <ul class="project-bullets">
+            <li>Architected and built a full-stack computer vision application end-to-end using Python and Streamlit, classifying over 120 dog breeds from user images.</li>
+            <li>Boosted detection reliability in group photos by integrating YOLOv8 for automatic multi-dog detection and image cropping ahead of classification.</li>
+            <li>Trained and fine-tuned a TensorFlow deep learning model to deliver robust, production-ready breed classification.</li>
+            <li>Designed a breed-specific health profiling module translating model output into actionable care insights, health risk alerts, and dietary recommendations.</li>
+            <li>Automated personalized PDF report generation with ReportLab, turning raw predictions into shareable breed and care summaries.</li>
+            <li>Extended platform usability by integrating a Botpress-powered AI chatbot for real-time conversational pet care assistance.</li>
+          </ul>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card">
+          <div class="project-header">
+            <h3>IoT Smart Car Parking System</h3>
+            <div class="skill-tags">
+              <span class="tag">IoT / Embedded</span>
+              <span class="tag">ESP32 / Arduino</span>
+              <span class="tag">Ultrasonic Sensors</span>
+              <span class="tag">Web Dashboard</span>
+            </div>
+          </div>
+          <ul class="project-bullets">
+            <li>Designed and built an IoT-based smart parking system to tackle urban parking bottlenecks through automated real-time monitoring.</li>
+            <li>Deployed ultrasonic and infrared sensors with Arduino/ESP32 microcontrollers at parking slots for real-time vehicle presence detection.</li>
+            <li>Built a live web and mobile dashboard giving drivers instant slot availability and administrators facility utilization analytics.</li>
+            <li>Cut driver search time and reduced in-lot congestion by automating occupancy detection and alerting across the entire facility.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project Photos / Working Demo Section -->
+    <section id="gallery">
+      <h2 class="section-title">Working Project Showcase</h2>
+      <p class="section-subtitle">Live system screenshots, hardware builds, and interface walkthroughs (Replace placeholder `src` attributes with your images)</p>
+      
+      <div class="gallery-grid">
+        <!-- Photo Card 1 -->
+        <div class="gallery-card">
+          <div class="gallery-img-container">
+            <!-- Replace 'images/canine-ui.png' with your actual screenshot path -->
+            <img src="images/canine-ui.png" alt="CanineAI Streamlit Dashboard" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <div class="gallery-placeholder" style="display:none;">
+              [Add Photo: CanineAI Streamlit UI / Detection Output]
+            </div>
+          </div>
+          <div class="gallery-info">
+            <h4>CanineAI Detection Interface</h4>
+            <p>User-facing Streamlit dashboard displaying bounding-box detection, breed probability scores, and health reports.</p>
+          </div>
+        </div>
+
+        <!-- Photo Card 2 -->
+        <div class="gallery-card">
+          <div class="gallery-img-container">
+            <!-- Replace 'images/iot-circuit.png' with your actual hardware photo path -->
+            <img src="images/iot-circuit.png" alt="IoT Parking Hardware Setup" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <div class="gallery-placeholder" style="display:none;">
+              [Add Photo: Arduino / ESP32 Sensor Hardware Prototype]
+            </div>
+          </div>
+          <div class="gallery-info">
+            <h4>Smart Parking Circuit & Sensor Rig</h4>
+            <p>Physical prototype showing ESP32/Arduino integration with ultrasonic sensor slot detectors.</p>
+          </div>
+        </div>
+
+        <!-- Photo Card 3 -->
+        <div class="gallery-card">
+          <div class="gallery-img-container">
+            <!-- Replace 'images/parking-dashboard.png' with your live analytics UI path -->
+            <img src="images/parking-dashboard.png" alt="Parking Dashboard Web View" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <div class="gallery-placeholder" style="display:none;">
+              [Add Photo: Real-time Parking Dashboard & Analytics]
+            </div>
+          </div>
+          <div class="gallery-info">
+            <h4>Live Parking Web Dashboard</h4>
+            <p>Real-time slot occupancy tracking view and administrative usage analytics.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education & Certifications -->
+    <section id="education">
+      <h2 class="section-title">Education & Certifications</h2>
+      <p class="section-subtitle">Academic background and continuous technical training</p>
+      
+      <div class="timeline-item">
+        <h4>Master of Computer Applications (MCA)</h4>
+        <div class="institution">D.Y. Patil University | In Progress</div>
+      </div>
+
+      <div class="timeline-item">
+        <h4>Bachelor of Computer Application (BCA)</h4>
+        <div class="institution">University of Mumbai | CGPA: 8.0 | Aug 2022 - Mar 2025</div>
+      </div>
+
+      <div class="timeline-item">
+        <h4>Complete Data Science, ML, Deep Learning & NLP Bootcamp</h4>
+        <div class="institution">Udemy | Verified Certification</div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <h2 class="section-title">Get In Touch</h2>
+      <p class="section-subtitle">Looking for entry-level AI/ML opportunities and collaboration</p>
+      
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+        <a href="mailto:shubham20049967@gmail.com" class="btn btn-primary">📧 shubham20049967@gmail.com</a>
+        <a href="tel:+917400383890" class="btn btn-secondary">📞 +91 7400383890</a>
+        <a href="https://linkedin.com" target="_blank" class="btn btn-secondary">🔗 LinkedIn Profile</a>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <p>© 2026 Shubham Ramsagar Yadav. Built with modern, responsive HTML & CSS.</p>
+  </footer>
+
+</body>
+</html>
